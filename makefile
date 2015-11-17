@@ -1,7 +1,7 @@
 all: outils_saisie
 
 outils_saisie: labo10.o outils_saisie.o
-	gcc -o outils_saisie labo10.o
+	gcc -o outils_saisie labo10.o outils_saisie.o
 
 outils_saisie.o: outils_saisie.c outils_saisie.h
 	gcc -o outils_saisie.o -c outils_saisie.c -W -Wall -ansi -pedantic
