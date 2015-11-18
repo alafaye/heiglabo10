@@ -20,10 +20,10 @@
 #include <stdlib.h>
 #include "outils_saisie.h"
 
-#define ASCII_O 79
-#define ASCII_o 111
-#define ASCII_N 78
-#define ASCII_n 110
+#define ASCII_O 'O'
+#define ASCII_o 'o'
+#define ASCII_N 'N'
+#define ASCII_n 'n'
 
 /*amoi*/
 int vide_ligne (void){
@@ -31,46 +31,56 @@ int vide_ligne (void){
 }
 
 int confirmation (char const *invite){
-    int retour, retour_entree;
+    int verif_entree, retour;
     char reponse;
 
-    printf("%s ", invite);
-    printf("(o/n) ");
     do{
-	retour = scanf("%c", &reponse);
-	if(retour != 1)
+	printf("%s ", invite);
+	printf("(o/n) ");
+	verif_entree = scanf("%c", &reponse);
+	if(verif_entree != 1)
 	    printf("L'entree est incorrecte!\n");
-	else if(reponse != ASCII_O || reponse != ASCII_o || reponse != ASCII_N || reponse != ASCII_n)
-	    retour = 0;
+	else if(reponse != ASCII_O && reponse != ASCII_o && reponse != ASCII_N && reponse != ASCII_n){
+	    printf("Il faut repondre par (o/n)!\n");
+	    verif_entree = 0;
+	}
     }
-    while(retour_entree != 1);
+    while(verif_entree != 1);
+
     vide_ligne();
+
+    if(reponse == ASCII_O || reponse == ASCII_o){
+	retour = 1;
+    }
+    else if(reponse == ASCII_N || reponse == ASCII_n){
+	retour = 0;
+    }
+    return retour;
 }
 
-/*amoi*/
 int lire_entier (char const *invite){
     int retour, verif_entree;
 
-    printf("%s", invite);
     do{
+	printf("%s", invite);
 	verif_entree = scanf("%d", &retour);
 	if(verif_entree != 1)
 	    printf("L'entree est incorrecte!\n");
     }
     while(verif_entree != 1);
 
-    vide_ligne;
+    vide_ligne();
     return retour;
 }
 
 int lire_entier_borne (char const *invite,
-                       int        borne_inf,
-                       int        borne_sup){
+	int        borne_inf,
+	int        borne_sup){
 
     int retour, verif_entree;
 
-    printf("%s", invite);
     do{
+	printf("%s", invite);
 	verif_entree = scanf("%d", &retour);
 	if(verif_entree != 1){
 	    printf("L'entree est incorrecte!\n");
@@ -82,37 +92,38 @@ int lire_entier_borne (char const *invite,
     }
     while(verif_entree != 1);
 
-    vide_ligne;
+    vide_ligne();
     return retour;
 }
 
 
-/*amoi*/
 double lire_reel ( char const *invite ){
     double retour;
     int verif_entree;
 
-    printf("%s", invite);
-
     do{
-	verif_entree = scanf("%d", &retour);
+	printf("%s", invite);
+	verif_entree = scanf("%lf", &retour);
 	if(verif_entree != 1)
 	    printf("L'entree est incorrecte!\n");
     }
     while(verif_entree != 1);
-    vide_ligne;
+
+    vide_ligne();
+
     return retour;
 }
 
 double lire_reel_borne (char const *invite,
-                        double     borne_inf,
-                        double     borne_sup){
+	double     borne_inf,
+	double     borne_sup){
 
-    int retour, verif_entree;
+    double retour;
+    int verif_entree;
 
-    printf("%s", invite);
     do{
-	verif_entree = scanf("%d", &retour);
+	printf("%s", invite);
+	verif_entree = scanf("%lf", &retour);
 	if(verif_entree != 1){
 	    printf("L'entree est incorrecte!\n");
 	}
@@ -123,7 +134,7 @@ double lire_reel_borne (char const *invite,
     }
     while(verif_entree != 1);
 
-    vide_ligne;
+    vide_ligne();
     return retour;
 }
 
