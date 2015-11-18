@@ -39,10 +39,12 @@ int confirmation (char const *invite){
     int verif_entree, retour;
     char reponse;
 
+    /* Entree utilisateur */
     do{
 	printf("%s ", invite);
 	printf("(o/n) ");
 	verif_entree = scanf("%c", &reponse);
+	/* Pour verifier que l'entree est correcte */
 	if(verif_entree != 1)
 	    printf("L'entree est incorrecte!\n");
 	else if(reponse != ASCII_O && reponse != ASCII_o && reponse != ASCII_N && reponse != ASCII_n){
@@ -54,12 +56,14 @@ int confirmation (char const *invite){
 
     vide_ligne();
 
+    /* Le retour de la fonction, 1 si la reponse est oui 0 sinon. */
     if(reponse == ASCII_O || reponse == ASCII_o){
 	retour = 1;
     }
     else if(reponse == ASCII_N || reponse == ASCII_n){
 	retour = 0;
     }
+
     return retour;
 }
 
@@ -70,6 +74,7 @@ int confirmation (char const *invite){
 int lire_entier (char const *invite){
     int retour, verif_entree;
 
+    /* Entree utilisateur */
     do{
 	printf("%s", invite);
 	verif_entree = scanf("%d", &retour);
@@ -79,6 +84,7 @@ int lire_entier (char const *invite){
     while(verif_entree != 1);
 
     vide_ligne();
+
     return retour;
 }
 
@@ -93,12 +99,14 @@ int lire_entier_borne (char const *invite,
 
     int retour, verif_entree;
 
+    /* Entree utilisateur */
     do{
 	printf("%s", invite);
 	verif_entree = scanf("%d", &retour);
 	if(verif_entree != 1){
 	    printf("L'entree est incorrecte!\n");
 	}
+	/* Verification des bornes */
 	else if(retour>borne_sup || retour<borne_inf){
 	    printf("L'entree n'est pas dans les bornes demandées!\n");
 	    verif_entree = 0;
@@ -107,6 +115,7 @@ int lire_entier_borne (char const *invite,
     while(verif_entree != 1);
 
     vide_ligne();
+
     return retour;
 }
 
@@ -118,6 +127,7 @@ double lire_reel ( char const *invite ){
     double retour;
     int verif_entree;
 
+    /* Entree utilisateur */
     do{
 	printf("%s", invite);
 	verif_entree = scanf("%lf", &retour);
@@ -143,12 +153,14 @@ double lire_reel_borne (char const *invite,
     double retour;
     int verif_entree;
 
+    /* Entree utilisateur */
     do{
 	printf("%s", invite);
 	verif_entree = scanf("%lf", &retour);
 	if(verif_entree != 1){
 	    printf("L'entree est incorrecte!\n");
 	}
+	/* Verification des bornes */
 	else if(retour>borne_sup || retour<borne_inf){
 	    printf("L'entree n'est pas dans les bornes demandées!\n");
 	    verif_entree = 0;
@@ -157,6 +169,7 @@ double lire_reel_borne (char const *invite,
     while(verif_entree != 1);
 
     vide_ligne();
+
     return retour;
 }
 
