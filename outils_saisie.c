@@ -25,11 +25,16 @@
 #define ASCII_N 'N'
 #define ASCII_n 'n'
 
-/*amoi*/
+/*---------------------------------------------------------------------
+ * Vide la ligne courante du tampon d'entree
+ */
 int vide_ligne (void){
     return fflush(stdin);
 }
 
+/*---------------------------------------------------------------------
+ * Affiche un message et confirme (oui/non) le choix de l'utilisateur
+ */
 int confirmation (char const *invite){
     int verif_entree, retour;
     char reponse;
@@ -58,6 +63,10 @@ int confirmation (char const *invite){
     return retour;
 }
 
+/*---------------------------------------------------------------------
+ * Lecture sans erreur d'un entier signe avec demande préalable
+ * Le reste de la ligne est vide
+ */
 int lire_entier (char const *invite){
     int retour, verif_entree;
 
@@ -73,6 +82,11 @@ int lire_entier (char const *invite){
     return retour;
 }
 
+/*---------------------------------------------------------------------
+ * Lecture sans erreur d'un entier signe entre 2 bornes;
+ * avec demande préalable
+ * Le reste de la ligne est vide
+ */
 int lire_entier_borne (char const *invite,
 	int        borne_inf,
 	int        borne_sup){
@@ -96,7 +110,10 @@ int lire_entier_borne (char const *invite,
     return retour;
 }
 
-
+/*---------------------------------------------------------------------
+ * Lecture sans erreur d'un reel (simple ou double) avec demande préalable
+ * Le reste de la ligne est vide
+ */
 double lire_reel ( char const *invite ){
     double retour;
     int verif_entree;
@@ -114,6 +131,11 @@ double lire_reel ( char const *invite ){
     return retour;
 }
 
+/*---------------------------------------------------------------------
+ * Lecture sans erreur d'un reel (simple ou double) entre 2 bornes;
+ * avec demande préalable
+ * Le reste de la ligne est vide
+ */
 double lire_reel_borne (char const *invite,
 	double     borne_inf,
 	double     borne_sup){
