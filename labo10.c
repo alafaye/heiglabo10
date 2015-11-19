@@ -31,6 +31,7 @@ int main(void){
 
     printf("Test de vide_ligne\n");
     resultat_vide_ligne = vide_ligne();
+    printf("Retour de vide_ligne: %d\n", resultat_vide_ligne);
 
     printf("Test de confirmation\n");
     resultat_confirmation = confirmation("Voulez-vous continuer?");
