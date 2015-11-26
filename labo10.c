@@ -29,7 +29,7 @@ int main(void){
 
     printf("Test Bench pour la labrairie de saisie.\n");
 
-    printf("Test de vide_ligne\n");
+    printf("Test de vide_ligne entrez ENTER pour continuer\n");
     resultat_vide_ligne = vide_ligne();
     printf("Retour de vide_ligne: %d\n", resultat_vide_ligne);
 
